@@ -16,7 +16,8 @@ export const siteConfig = {
   locales: { default: "es" as const, supported: ["es", "en"] as const },
 } as const;
 
-const baseUrl = "https://glops-labs.com";
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://glops-labs.com";
 
 export const siteUrls = {
   base: baseUrl,
