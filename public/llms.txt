@@ -1,0 +1,20 @@
+# GLOps Labs — llms.txt
+
+> Estudio web B2B: webs que venden, listas en días.
+> B2B web studio: fixed-scope projects, delivered in days.
+> Full context for agents: /llms-full.txt
+
+## Servicios (precios desde, USD)
+- Rápidos 48-72h: Menú/Catálogo QR $150, Link-in-bio premium $120, Email corporativo $100, Mantenimiento $50/mes
+- Medios 3-5 días: Landing $250, Reservas $200, Migración web $250, Funnel+chatbot $400, Optimización $200, Tienda WooCommerce $350
+- Core 5-7 días: Sitio corporativo $500
+
+## Reglas comerciales
+- 50% por adelantado para iniciar (Payoneer, Facebank o Binance). Resto antes del deploy.
+- Precio cerrado: checklist cerrada y precio fijo. Fuera de lista se re-cotiza.
+- El tiempo corre desde que el cliente entrega textos, fotos y logo.
+
+## Contacto
+- Email: ops.glopslabs@gmail.com
+- WhatsApp: wa.me business (ver env NEXT_PUBLIC_WHATSAPP_URL)
+- Agendar: cal.com (ver env NEXT_PUBLIC_CALCOM_URL)

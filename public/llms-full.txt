@@ -1,0 +1,65 @@
+# GLOps Labs — Full context for AI agents (llms-full.txt)
+
+> Last updated: umbrella B2B studio (v0.1). Canonical home: https://glops-labs.com/
+> Summary version: /llms.txt
+
+## 1. What GLOps Labs is
+
+GLOps Labs is a B2B web studio (ES/EN) shipping professional websites in days
+for SMBs, professionals and local businesses: based in Venezuela, remote-first
+across LatAm. No hourly billing, no infinite scope: closed checklist and fixed
+price before kickoff. 50% upfront to start (Payoneer, Facebank or Binance),
+balance before deploy to the final domain.
+
+- Home (ES): https://glops-labs.com/
+- Home (EN): https://glops-labs.com/en
+- Catalog: https://glops-labs.com/servicios (ES) / https://glops-labs.com/en/servicios (EN)
+
+## 2. Standardized catalog (starting prices, USD)
+
+Fast (48-72h): QR menu/catalog $150+, premium link-in-bio $120+, corporate
+email + HTML signature $100+, monthly care plan $50+/mo (backups, updates,
+uptime, 1h tweaks).
+Standard (3-5 days): high-conversion landing $250+, booking system $200+,
+migration & rescue $250+, lead funnel + chatbot $400+, speed optimization $200+,
+WooCommerce store $350+.
+Core (5-7 days): corporate B2B site $500+.
+
+Operating rules: 15-minute intake form, no long meetings (15-min call max).
+The clock starts when the client delivers copy, photos and logo; missing
+assets are AI-generated at extra cost. Off-checklist requests get re-quoted.
+
+## 3. How ordering works (no backend v0.1)
+
+1. Need: the client describes the project (4-280 chars).
+2. Pace: picks Fast / Standard / Core, sees starting price and timeline.
+3. Channel: same prefilled text goes to scheduling (cal.com), WhatsApp (wa.me)
+or Email (mailto). 50% upfront is required before any work starts.
+
+## 4. Commercial guarantee rules
+
+- Fixed scope: closed checklist + fixed price signed before kickoff.
+- Staging with password until final payment; final deploy ships paid.
+- Statuses: every catalog service is orderable; retired services are removed,
+  never left half-listed.
+
+## 5. Lab status (honest)
+
+- First cases in progress: no fabricated testimonials or metrics. The first
+  closed case gets published with real numbers (timeline, closed price, outcome).
+
+## 6. Contact
+
+- Email: ops.glopslabs@gmail.com
+- Scheduling: cal.com link (see site env NEXT_PUBLIC_CALCOM_URL)
+- WhatsApp Business: wa.me link (see site env NEXT_PUBLIC_WHATSAPP_URL)
+- GitHub: https://github.com/GLOps-Labs
+- Instagram: https://instagram.com/glopslabs
+
+## 7. Sitemap for crawlers
+
+- / — home ES (hreflang es/en)
+- /en — home EN
+- /servicios — catalog ES
+- /en/servicios — catalog EN
+- /sitemap.xml, /robots.txt, /og/es, /og/en (1200x630 covers)
