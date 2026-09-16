@@ -37,11 +37,13 @@ test("happy: ?lang=en starts in English", async ({ page }) => {
 test.describe("browser locale detection", () => {
   test.use({ locale: "en-US" });
 
-  test("happy: English browser lands on /en with a clean handoff", async ({ page }) => {
+  test("happy: English browser stays on / in ES until explicit choice", async ({ page }) => {
     await page.goto("/");
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.getByRole(HEADING_ROLE, { level: 1 })).toContainText("listas en días");
+    await page.goto("/?lang=en");
     await expect(page).toHaveURL(/\/en\/?$/);
     await expect(page.getByRole(HEADING_ROLE, { level: 1 })).toContainText(EXPECTED.enHeading);
-    expect(page.url().includes("lang=")).toBe(false);
   });
 });
 
@@ -63,8 +65,8 @@ test("happy: meta/SEO + sitemap + llms are alive", async ({ page, request }) => 
   expect(ldCount).toBeGreaterThanOrEqual(EXPECTED.minJsonLd); // Organization + WebSite + FAQPage es/en
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(EXPECTED.hreflangCount);
   const ogImage = await page.locator('meta[property="og:image"]').getAttribute("content");
-  expect(ogImage).toMatch(/^https:\/\/glops-labs\.com\/og\/es/);
-  for (const url of ["/sitemap.xml", "/robots.txt", "/llms.txt", "/llms-full.txt", "/og/es", "/og/en", "/servicios", "/en", "/en/servicios", "/manifest.webmanifest", "/icon.png", "/apple-icon.png"]) {
+  expect(ogImage).toMatch(/^https:\/\/glops-labs\.com\/og\/es\.png/);
+  for (const url of ["/sitemap.xml", "/robots.txt", "/llms.txt", "/llms-full.txt", "/og/es", "/og/en", "/og/es.png", "/og/en.png", "/servicios", "/en", "/en/servicios", "/manifest.webmanifest", "/icon.png", "/apple-icon.png"]) {
     const response = await request.get(url);
     expect(response.status(), url).toBe(EXPECTED.httpOk);
   }

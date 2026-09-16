@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "GLOps Labs",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og/en", width: 1200, height: 630, alt: "GLOps Labs Services" }],
+    images: [{ url: "/og/en.png", width: 1200, height: 630, alt: "GLOps Labs Services" }],
   },
   twitter: { card: "summary_large_image" },
 };
