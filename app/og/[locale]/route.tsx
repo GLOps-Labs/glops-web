@@ -2,20 +2,20 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
+// Square cover (Spotify-style): WhatsApp crops og:image to a square thumb,
+// X/Facebook crop the 1.91:1 center band. Centered composition survives both.
 const COPY = {
   es: {
-    lineOne: "Webs profesionales",
-    lineTwo: "en días",
+    tagline: "Webs profesionales en días",
     sub: "Precio cerrado · 50% para iniciar",
   },
   en: {
-    lineOne: "Professional websites",
-    lineTwo: "in days",
+    tagline: "Professional websites in days",
     sub: "Fixed price · 50% to start",
   },
 } as const;
 
-const COVER = { width: 1200, height: 630 } as const;
+const COVER = { width: 1200, height: 1200 } as const;
 const NAVY = "#112255";
 const ACCENT = "#F97316";
 const CACHE_CONTROL = "public, max-age=3600, s-maxage=86400";
@@ -44,35 +44,35 @@ export async function GET(
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          alignItems: "center",
           justifyContent: "center",
-          padding: "80px",
+          padding: "100px",
           background: NAVY,
           fontFamily: "system-ui, sans-serif",
+          textAlign: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "96px",
-              height: "96px",
-              borderRadius: "24px",
-              background: "#FFFFFF",
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse (OG) has no next/image runtime; data-URL img is the documented pattern */}
-            <img src={logoSrc} width={72} height={72} alt="GLOps Labs" />
-          </div>
-          <div style={{ fontSize: 40, fontWeight: 800, color: "#FFFFFF" }}>GLOps Labs</div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "300px",
+            height: "300px",
+            borderRadius: "72px",
+            background: "#FFFFFF",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse (OG) has no next/image runtime; data-URL img is the documented pattern */}
+          <img src={logoSrc} width={220} height={220} alt="GLOps Labs" />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", fontSize: 78, fontWeight: 800, color: "#FFFFFF", lineHeight: 1.08, marginTop: "32px" }}>
-          {copy.lineOne}
-          <br />
-          {copy.lineTwo}
+        <div style={{ fontSize: 72, fontWeight: 800, color: "#FFFFFF", marginTop: "48px" }}>
+          GLOps Labs
         </div>
-        <div style={{ fontSize: 34, color: ACCENT, fontWeight: 700, marginTop: "28px" }}>{copy.sub}</div>
+        <div style={{ fontSize: 44, fontWeight: 600, color: "#FFFFFF", opacity: 0.9, marginTop: "16px" }}>
+          {copy.tagline}
+        </div>
+        <div style={{ fontSize: 36, color: ACCENT, fontWeight: 700, marginTop: "16px" }}>{copy.sub}</div>
       </div>
     ),
     { width: COVER.width, height: COVER.height, headers },

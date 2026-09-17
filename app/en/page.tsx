@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["es_ES"],
     type: "website",
-    images: [{ url: "/og/en.png", width: 1200, height: 630, alt: "GLOps Labs — Professional websites in days" }],
+    images: [{ url: "/og/en.png", width: 1200, height: 1200, alt: "GLOps Labs — Professional websites in days" }],
   },
   twitter: { card: "summary_large_image" },
 };

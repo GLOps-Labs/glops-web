@@ -62,4 +62,4 @@ or Email (mailto). 50% upfront is required before any work starts.
 - /en — home EN
 - /servicios — catalog ES
 - /en/servicios — catalog EN
-- /sitemap.xml, /robots.txt, /og/es, /og/en (1200x630 covers)
+- /sitemap.xml, /robots.txt, /og/es, /og/en (dynamic source), /og/es.png, /og/en.png (1200x1200 square covers)
