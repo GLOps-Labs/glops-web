@@ -16,6 +16,7 @@ export const siteConfig = {
   locales: { default: "es" as const, supported: ["es", "en"] as const },
   features: {
     showSchedule: process.env.NEXT_PUBLIC_SHOW_SCHEDULE !== "false",
+    showWhatsapp: process.env.NEXT_PUBLIC_SHOW_WHATSAPP !== "false",
   },
 } as const;
 

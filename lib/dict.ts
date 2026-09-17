@@ -10,6 +10,7 @@ export const dict = {
       sub: "Landings, sitios corporativos y menús QR para PYMEs y profesionales de LatAm: sabes qué recibes y cuánto pagas antes de empezar.",
       schedule: "Agendar llamada",
       whatsapp: "WhatsApp",
+      email: "Email",
     },
     process: {
       title: "Proceso",
@@ -62,9 +63,10 @@ export const dict = {
       h1a: "Professional websites",
       accent: "ready in days",
       h1b: "at a fixed price",
-      sub: "Landings, corporate sites and QR menus for LatAm SMBs: know what you get and what you pay before we start.",
+      sub: "Landings, corporate sites and QR menus for LatAm SMBs and independent professionals: know what you get and what you pay before we start.",
       schedule: "Schedule a call",
       whatsapp: "WhatsApp",
+      email: "Email",
     },
     process: {
       title: "Process",

@@ -135,9 +135,11 @@ function StepChannel({
               {copy.schedule} <ArrowIcon className="h-4 w-4" />
             </a>
           ) : null}
-          <a href={links.whatsapp} className="rounded-full border border-ink px-6 py-3 text-sm font-semibold">
-            {copy.whatsapp}
-          </a>
+          {siteConfig.features.showWhatsapp ? (
+            <a href={links.whatsapp} className="rounded-full border border-ink px-6 py-3 text-sm font-semibold">
+              {copy.whatsapp}
+            </a>
+          ) : null}
           <a href={links.email} className="rounded-full border border-ink px-6 py-3 text-sm font-semibold">
             {copy.email}
           </a>
