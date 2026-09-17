@@ -1,6 +1,6 @@
 # GLOps Labs — Full context for AI agents (llms-full.txt)
 
-> Last updated: umbrella B2B studio (v0.1). Canonical home: https://glops-labs.com/
+> Last updated: umbrella B2B studio (v0.1). Canonical home: https://glopslabs.com/
 > Summary version: /llms.txt
 
 ## 1. What GLOps Labs is
@@ -11,9 +11,9 @@ across LatAm. No hourly billing, no infinite scope: closed checklist and fixed
 price before kickoff. 50% upfront to start (Payoneer, Facebank or Binance),
 balance before deploy to the final domain.
 
-- Home (ES): https://glops-labs.com/
-- Home (EN): https://glops-labs.com/en
-- Catalog: https://glops-labs.com/servicios (ES) / https://glops-labs.com/en/servicios (EN)
+- Home (ES): https://glopslabs.com/
+- Home (EN): https://glopslabs.com/en
+- Catalog: https://glopslabs.com/servicios (ES) / https://glopslabs.com/en/servicios (EN)
 
 ## 2. Standardized catalog (starting prices, USD)
 

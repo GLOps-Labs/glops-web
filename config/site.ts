@@ -17,7 +17,7 @@ export const siteConfig = {
 } as const;
 
 const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://glops-labs.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://glopslabs.com";
 
 export const siteUrls = {
   base: baseUrl,
