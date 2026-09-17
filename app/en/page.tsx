@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "GLOps Labs — Professional websites in days",
-    description: "Landings, corporate sites, QR menus and more for SMBs and independents. Fixed price, 50% to start.",
+    description: "Landings, corporate sites, QR menus and more for SMBs and independents.",
     url: siteUrls.homeEn,
     siteName: "GLOps Labs",
     locale: "en_US",

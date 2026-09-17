@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Servicios GLOps Labs — Alcance blindado, entrega en días",
-    description: "Landings, corporativos, menú QR y más. Precio fijo, 50% para iniciar.",
+    description: "Landings, corporativos, menú QR y más para PYMEs y profesionales.",
     url: siteUrls.serviciosEs,
     siteName: "GLOps Labs",
     locale: "es_ES",
