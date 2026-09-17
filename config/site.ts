@@ -14,6 +14,9 @@ export const siteConfig = {
       "https://wa.me/58XXXXXXXXXX?text=Hola%20GLOps%20Labs%2C%20quiero%20un%20proyecto",
   },
   locales: { default: "es" as const, supported: ["es", "en"] as const },
+  features: {
+    showSchedule: process.env.NEXT_PUBLIC_SHOW_SCHEDULE !== "false",
+  },
 } as const;
 
 const baseUrl =

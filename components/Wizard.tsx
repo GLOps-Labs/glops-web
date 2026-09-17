@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import type { UseFormRegister } from "react-hook-form";
 import { getDict } from "@/lib/dict";
 import type { Dict } from "@/lib/dict";
+import { siteConfig } from "@/config/site";
 import type { SupportedLocale } from "@/config/site";
 import { NEED_MAX_LENGTH, NEED_MIN_LENGTH, WizardNeedSchema, buildContactLinks } from "@/lib/contact";
 import type { ContactLinks, NeedForm, WizardCategory } from "@/lib/contact";
@@ -129,9 +130,11 @@ function StepChannel({
       <span className="font-semibold">{copy.step3}</span>
       {links ? (
         <div className="flex flex-wrap gap-3">
-          <a href={links.calcom} className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink">
-            {copy.schedule} <ArrowIcon className="h-4 w-4" />
-          </a>
+          {siteConfig.features.showSchedule ? (
+            <a href={links.calcom} className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink">
+              {copy.schedule} <ArrowIcon className="h-4 w-4" />
+            </a>
+          ) : null}
           <a href={links.whatsapp} className="rounded-full border border-ink px-6 py-3 text-sm font-semibold">
             {copy.whatsapp}
           </a>

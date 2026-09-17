@@ -46,12 +46,14 @@ export function Nav({
               </button>
             ))}
           </div>
-          <a
-            href={siteConfig.contact.calcom}
-            className="flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accentink"
-          >
-            {copy.schedule} <ArrowIcon className="h-4 w-4" />
-          </a>
+          {siteConfig.features.showSchedule ? (
+            <a
+              href={siteConfig.contact.calcom}
+              className="flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accentink"
+            >
+              {copy.schedule} <ArrowIcon className="h-4 w-4" />
+            </a>
+          ) : null}
         </div>
       </div>
     </header>

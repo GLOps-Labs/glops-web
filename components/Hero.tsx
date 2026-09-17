@@ -19,12 +19,14 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
         </h1>
         <p className="max-w-xl text-base text-muted sm:text-lg">{copy.sub}</p>
         <div className="flex flex-wrap gap-3">
-          <a
-            href={siteConfig.contact.calcom}
-            className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink"
-          >
-            {copy.schedule} <ArrowIcon className="h-4 w-4" />
-          </a>
+          {siteConfig.features.showSchedule ? (
+            <a
+              href={siteConfig.contact.calcom}
+              className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink"
+            >
+              {copy.schedule} <ArrowIcon className="h-4 w-4" />
+            </a>
+          ) : null}
           <a
             href={siteConfig.contact.whatsapp}
             className="rounded-full border border-ink px-6 py-3 text-sm font-semibold"
