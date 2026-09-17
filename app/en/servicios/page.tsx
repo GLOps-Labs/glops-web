@@ -10,14 +10,14 @@ import type { ServiceCategory } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Services — GLOps Labs",
   description:
-    "Landing pages from $250, B2B sites, digital QR menus, corporate email and more. Fixed price and timeline, 50% to start. Fixed scope.",
+    "Landing pages from $250, corporate sites, digital QR menus, corporate email and more. Fixed price and timeline, 50% to start. Fixed scope.",
   alternates: {
     canonical: siteUrls.serviciosEn,
     languages: { es: siteUrls.serviciosEs, en: siteUrls.serviciosEn },
   },
   openGraph: {
     title: "GLOps Labs Services — Fixed scope, delivered in days",
-    description: "Landings, corporate sites, QR menus and more. Fixed price, 50% to start.",
+    description: "Landings, corporate sites, QR menus and more for SMBs and independents. Fixed price, 50% to start.",
     url: siteUrls.serviciosEn,
     siteName: "GLOps Labs",
     locale: "en_US",

@@ -10,7 +10,7 @@ import type { ServiceCategory } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Servicios web — GLOps Labs",
   description:
-    "Landing pages desde $250, sitios B2B, menú QR digital, email corporativo y más. Precio y tiempo fijos, 50% para iniciar. Alcance blindado.",
+    "Landing pages desde $250, sitios corporativos, menú QR digital, email corporativo y más. Precio y tiempo fijos, 50% para iniciar. Alcance blindado.",
   alternates: {
     canonical: siteUrls.serviciosEs,
     languages: { es: siteUrls.serviciosEs, en: siteUrls.serviciosEn },

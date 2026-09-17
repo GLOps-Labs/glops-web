@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GLOps Labs — Webs profesionales listas en días",
     description:
-      "Landings, corporativos y menú QR para PYMEs de LatAm. Precio cerrado, 50% para iniciar.",
+      "Landings, corporativos y menú QR para PYMEs y profesionales de LatAm. Precio cerrado, 50% para iniciar.",
     url: siteUrls.base,
     siteName: "GLOps Labs",
     locale: "es_ES",
