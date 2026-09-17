@@ -21,7 +21,7 @@ export const orgJsonLd = {
   email: siteConfig.brand.email,
   sameAs: [siteConfig.brand.github, siteConfig.brand.instagram],
   description:
-    "Estudio web: webs profesionales listas en días para PYMEs y profesionales, a precio cerrado. 50% para iniciar.",
+    "Estudio web: webs profesionales listas en días para PYMEs y profesionales. 50% para iniciar.",
 };
 
 export const websiteJsonLd = {

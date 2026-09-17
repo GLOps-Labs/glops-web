@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "GLOps Labs",
     short_name: "GLOps",
-    description: "Webs profesionales listas en días a precio cerrado.",
+    description: "Webs profesionales listas en días.",
     start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",

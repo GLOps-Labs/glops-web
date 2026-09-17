@@ -38,7 +38,7 @@ or Email (mailto). 50% upfront is required before any work starts.
 
 ## 4. Commercial guarantee rules
 
-- Fixed scope: closed checklist + fixed price signed before kickoff.
+- Clear scope: closed checklist signed before kickoff.
 - Staging with password until final payment; final deploy ships paid.
 - Statuses: every catalog service is orderable; retired services are removed,
   never left half-listed.

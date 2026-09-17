@@ -10,7 +10,7 @@ import type { ServiceCategory } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Services — GLOps Labs",
   description:
-    "Landing pages from $250, corporate sites, digital QR menus, corporate email and more. Fixed price and timeline, 50% to start. Fixed scope.",
+    "Landing pages from $250, corporate sites, digital QR menus, corporate email and more. Clear timelines, 50% to start. Fixed scope.",
   alternates: {
     canonical: siteUrls.serviciosEn,
     languages: { es: siteUrls.serviciosEs, en: siteUrls.serviciosEn },
@@ -77,7 +77,7 @@ export default function EnServicios() {
         <h2 className="font-display text-xl font-bold sm:text-2xl">How we work</h2>
         <ol className="mt-3 flex list-decimal flex-col gap-2 pl-5 text-sm text-white/80">
           <li>We scope in a 15-minute form or a call, your choice.</li>
-          <li>We sign a closed checklist and fixed price. Off-list gets re-quoted.</li>
+          <li>We sign a closed checklist. Off-list gets re-quoted.</li>
           <li>You pay 50% to start. The balance before migrating to your final domain.</li>
           <li>We deliver on password staging; final deploy ships with full payment.</li>
         </ol>

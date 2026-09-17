@@ -10,7 +10,7 @@ import type { ServiceCategory } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Servicios web — GLOps Labs",
   description:
-    "Landing pages desde $250, sitios corporativos, menú QR digital, email corporativo y más. Precio y tiempo fijos, 50% para iniciar. Alcance blindado.",
+    "Landing pages desde $250, sitios corporativos, menú QR digital, email corporativo y más. Tiempos claros, 50% para iniciar. Alcance blindado.",
   alternates: {
     canonical: siteUrls.serviciosEs,
     languages: { es: siteUrls.serviciosEs, en: siteUrls.serviciosEn },
@@ -78,7 +78,7 @@ export default function Servicios() {
         <h2 className="font-display text-xl font-bold sm:text-2xl">Cómo trabajamos</h2>
         <ol className="mt-3 flex list-decimal flex-col gap-2 pl-5 text-sm text-white/80">
           <li>Levantamos el requerimiento en un formulario de 15 minutos o una llamada, como prefieras.</li>
-          <li>Firmamos checklist cerrada y precio fijo. Lo fuera de lista se re-cotiza.</li>
+          <li>Firmamos checklist cerrada. Lo fuera de lista se re-cotiza.</li>
           <li>Pagas 50% para iniciar. El resto antes de migrar a tu dominio final.</li>
           <li>Entregamos en staging con password; el deploy final va con el pago completo.</li>
         </ol>

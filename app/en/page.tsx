@@ -7,7 +7,7 @@ import { dict } from "@/lib/dict";
 export const metadata: Metadata = {
   title: "GLOps Labs — Fixed-scope websites, delivered in days",
   description:
-    "Landing pages, corporate sites, QR menus, corporate email and more for SMBs and professionals. Fixed price and timeline, 50% to start.",
+    "Landing pages, corporate sites, QR menus, corporate email and more for SMBs and professionals. Clear timeline, 50% to start.",
   alternates: {
     canonical: siteUrls.homeEn,
     languages: { es: siteUrls.base, en: siteUrls.homeEn },

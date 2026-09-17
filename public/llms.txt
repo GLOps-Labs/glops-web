@@ -11,7 +11,7 @@
 
 ## Reglas comerciales
 - 50% por adelantado para iniciar (Payoneer, Facebank o Binance). Resto antes del deploy.
-- Precio cerrado: checklist cerrada y precio fijo. Fuera de lista se re-cotiza.
+- Checklist cerrada: alcance y tiempos claros antes de iniciar. Fuera de lista se re-cotiza.
 - El tiempo corre desde que el cliente entrega textos, fotos y logo.
 
 ## Contacto
