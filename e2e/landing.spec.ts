@@ -65,10 +65,10 @@ test("happy: meta/SEO + sitemap + llms are alive", async ({ page, request }) => 
   expect(ldCount).toBeGreaterThanOrEqual(EXPECTED.minJsonLd); // Organization + WebSite + FAQPage es/en
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(EXPECTED.hreflangCount);
   const ogImage = await page.locator('meta[property="og:image"]').getAttribute("content");
-  expect(ogImage).toMatch(/^https:\/\/glops-labs\.com\/og\/es\.png/);
-  const ogFile = await request.get("/og/es.png");
+  expect(ogImage).toMatch(/^https:\/\/glops-labs\.com\/og\/cover\.png/);
+  const ogFile = await request.get("/og/cover.png");
   expect(ogFile.headers()["content-type"]).toContain("image/");
-  for (const url of ["/sitemap.xml", "/robots.txt", "/llms.txt", "/llms-full.txt", "/og/es", "/og/en", "/og/es.png", "/og/en.png", "/servicios", "/en", "/en/servicios", "/manifest.webmanifest", "/icon.png", "/apple-icon.png"]) {
+  for (const url of ["/sitemap.xml", "/robots.txt", "/llms.txt", "/llms-full.txt", "/og/cover.png", "/servicios", "/en", "/en/servicios", "/manifest.webmanifest", "/icon.png", "/apple-icon.png"]) {
     const response = await request.get(url);
     expect(response.status(), url).toBe(EXPECTED.httpOk);
   }
