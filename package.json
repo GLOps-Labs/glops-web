@@ -11,6 +11,7 @@
     "test": "vitest run",
     "e2e": "playwright test",
     "brand": "node scripts/gen-brand.mjs",
+    "carousel:errores": "node scripts/carousel-5-errores.mjs",
     "qa": "pnpm ts:check && pnpm lint && pnpm test && pnpm build && pnpm e2e"
   },
   "dependencies": {
