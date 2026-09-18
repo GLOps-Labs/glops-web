@@ -96,7 +96,7 @@ function StepCategory({
               key={code}
               onClick={() => onCategory(code)}
               aria-pressed={category === code}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold ${category === code ? "border-accent bg-accent/10 text-accent" : "border-line bg-bg"}`}
+              className={`rounded-full border px-4 py-2 text-sm font-semibold ${category === code ? "border-accent bg-accent/10 text-accentdeep" : "border-line bg-bg"}`}
             >
               {locale === "es" ? meta.titleEs : meta.titleEn} · {locale === "es" ? meta.timeEs : meta.timeEn} · ${meta.floor}+
             </button>

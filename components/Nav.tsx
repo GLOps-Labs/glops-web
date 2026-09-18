@@ -15,8 +15,9 @@ export function Nav({
 }) {
   const copy = getDict(locale).nav;
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-line bg-bg/90 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-3 py-2 sm:px-4 sm:py-3">
+    <>
+      <header className="sticky top-0 z-50 w-full border-b border-line bg-bg/90 backdrop-blur">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-3 py-2 sm:px-4 sm:py-3">
         <a href="#top" aria-label="GLOps Labs — top" className="flex w-fit items-center gap-1.5 rounded-full bg-brand py-1 pl-1 pr-3 shadow-md transition hover:brightness-110 active:scale-95 sm:py-1.5 sm:pl-1.5 sm:pr-4 sm:gap-2">
           <Image
             src="/brand/glops/logo-mark-mono-white.png"
@@ -56,8 +57,9 @@ export function Nav({
             </a>
           ) : null}
         </div>
-      </div>
-      <nav aria-label={locale === "es" ? "Secciones" : "Sections"} className="relative border-t border-line sm:hidden">
+        </div>
+      </header>
+      <nav aria-label={locale === "es" ? "Secciones" : "Sections"} className="relative border-b border-line sm:hidden">
         <div className="overflow-x-auto">
           <div className="mx-auto flex w-max items-center gap-4 px-4 py-2 text-[13px]">
           <a href="#process" className="whitespace-nowrap hover:underline">{copy.process}</a>
@@ -68,6 +70,6 @@ export function Nav({
         </div>
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-bg to-transparent" />
       </nav>
-    </header>
+    </>
   );
 }

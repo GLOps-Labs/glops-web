@@ -11,6 +11,7 @@ export const dict = {
       schedule: "Agendar llamada",
       whatsapp: "WhatsApp",
       email: "Email",
+      scarcity: "Cupos limitados cada semana — agenda el tuyo.",
     },
     process: {
       title: "Proceso",
@@ -67,6 +68,7 @@ export const dict = {
       schedule: "Schedule a call",
       whatsapp: "WhatsApp",
       email: "Email",
+      scarcity: "Limited slots each week — book yours.",
     },
     process: {
       title: "Process",

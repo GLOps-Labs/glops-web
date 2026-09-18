@@ -62,7 +62,7 @@ export default function Servicios() {
                 .map((service) => (
                   <article key={service.slug} className="rounded-[20px] border border-line bg-bgsoft p-5 sm:p-7">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-sm font-bold text-accent">{service.slug}</span>
+                      <span className="text-sm font-bold text-accentdeep">{service.slug}</span>
                       <span className="text-sm font-bold">desde ${service.priceFrom}{service.recurring ? "/mes" : null} · {service.time}</span>
                     </div>
                     <h3 className="mt-2 font-display text-xl font-bold sm:text-2xl">{service.titleEs}</h3>

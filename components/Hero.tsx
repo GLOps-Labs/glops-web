@@ -42,6 +42,7 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
             {copy.email}
           </a>
         </div>
+        <p className="mt-3 text-sm text-muted">{copy.scarcity}</p>
       </div>
     </section>
   );

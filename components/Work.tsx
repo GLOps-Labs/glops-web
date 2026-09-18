@@ -26,7 +26,7 @@ export function Work({ locale }: { locale: SupportedLocale }) {
                 <h3 className="font-display text-xl font-bold">
                   {locale === "es" ? meta.titleEs : meta.titleEn}
                 </h3>
-                <p className="mt-1 text-sm font-bold text-accent">
+                <p className="mt-1 text-sm font-bold text-accentdeep">
                   {locale === "es" ? meta.timeEs : meta.timeEn} · {copy.from} ${meta.floor}
                 </p>
                 <ul className="mt-3 flex flex-col items-center gap-1.5 text-sm text-muted sm:items-stretch">
