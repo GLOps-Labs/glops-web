@@ -58,11 +58,13 @@ export function Nav({
         </div>
       </div>
       <nav aria-label={locale === "es" ? "Secciones" : "Sections"} className="relative border-t border-line sm:hidden">
-        <div className="mx-auto flex max-w-5xl items-center gap-4 overflow-x-auto px-4 py-2 text-[13px]">
+        <div className="overflow-x-auto">
+          <div className="mx-auto flex w-max items-center gap-4 px-4 py-2 text-[13px]">
           <a href="#process" className="whitespace-nowrap hover:underline">{copy.process}</a>
           <a href="#work" className="whitespace-nowrap hover:underline">{copy.work}</a>
           <a href="#about" className="whitespace-nowrap hover:underline">{copy.about}</a>
           <a href="#faqs" className="whitespace-nowrap hover:underline">{copy.faqs}</a>
+          </div>
         </div>
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-bg to-transparent" />
       </nav>
