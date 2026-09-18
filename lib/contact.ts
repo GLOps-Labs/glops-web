@@ -27,10 +27,24 @@ export function buildContactLinks(state: WizardState): {
   calcom: string;
 } {
   const meta = CATEGORY_META[state.category];
-  const text = `${state.category} desde $${meta.floor} — ${state.need}`;
+  const summary = `${state.category} desde $${meta.floor} — ${state.need}`;
   const [whatsappBase] = siteConfig.contact.whatsapp.split("?text=");
-  const whatsapp = `${whatsappBase}?text=${encodeURIComponent(`Hola GLOps Labs, quiero un proyecto: ${text}`)}`;
-  const email = `mailto:ops.glopslabs+beta1@gmail.com?subject=${encodeURIComponent("Proyecto GLOps Labs")}&body=${encodeURIComponent(text)}`;
+  const whatsapp = `${whatsappBase}?text=${encodeURIComponent(`Hola GLOps Labs, quiero pedir: ${summary}. Mis datos — Nombre: Teléfono:`)}`;
+  const emailSubject = "Nuevo proyecto web — GLOps Labs";
+  const emailBody = [
+    "Hola GLOps Labs,",
+    "",
+    "Quiero pedir este proyecto:",
+    `Ritmo: ${summary}`,
+    "",
+    "Mis datos:",
+    "Nombre:",
+    "Teléfono:",
+    "Mejor horario:",
+    "",
+    "Gracias.",
+  ].join("\n");
+  const email = `mailto:ops.glopslabs+beta1@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   return { whatsapp, email, calcom: siteConfig.contact.calcom };
 }
 

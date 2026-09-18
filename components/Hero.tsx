@@ -35,14 +35,12 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
               {copy.whatsapp}
             </a>
           ) : null}
-          {!siteConfig.features.showSchedule && !siteConfig.features.showWhatsapp ? (
-            <a
-              href={`mailto:${siteConfig.brand.email}`}
-              className="rounded-full border border-ink px-6 py-3 text-sm font-semibold"
-            >
-              {copy.email}
-            </a>
-          ) : null}
+          <a
+            href={`mailto:${siteConfig.brand.email}`}
+            className="rounded-full border border-ink px-6 py-3 text-sm font-semibold"
+          >
+            {copy.email}
+          </a>
         </div>
       </div>
     </section>

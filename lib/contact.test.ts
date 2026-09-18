@@ -28,13 +28,18 @@ describe("buildContactLinks (single mutation gate)", () => {
   it("prefills whatsapp with category + floor + need", () => {
     const links = buildContactLinks({ need: "Landing", category: "medio" });
     expect(links.whatsapp).toContain("wa.me/");
-    expect(decodeURIComponent(links.whatsapp)).toContain("medio desde $200 — Landing");
+    const decoded = decodeURIComponent(links.whatsapp);
+    expect(decoded).toContain("quiero pedir");
+    expect(decoded).toContain("medio desde $200 — Landing");
   });
 
-  it("prefills mailto subject + body", () => {
+  it("prefills mailto subject + styled body", () => {
     const links = buildContactLinks({ need: "Menú QR", category: "rapido" });
     expect(links.email.startsWith("mailto:")).toBe(true);
-    expect(decodeURIComponent(links.email)).toContain("rapido desde $50 — Menú QR");
+    const decoded = decodeURIComponent(links.email);
+    expect(decoded).toContain("Nuevo proyecto web");
+    expect(decoded).toContain("rapido desde $50 — Menú QR");
+    expect(decoded).toContain("Mis datos:");
   });
 
   it("takes cal.com from siteConfig", () => {
