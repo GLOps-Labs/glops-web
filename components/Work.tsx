@@ -15,30 +15,30 @@ export function Work({ locale }: { locale: SupportedLocale }) {
   return (
     <section id="work" className="w-full bg-bg">
       <div className="mx-auto max-w-5xl px-4 py-12">
-        <h2 className="font-display font-bold" style={{ fontSize: "var(--section-size)" }}>{copy.title}</h2>
+        <h2 className="text-center font-display font-bold sm:text-left" style={{ fontSize: "var(--section-size)" }}>{copy.title}</h2>
         <div className="mt-6 grid items-stretch gap-4 sm:grid-cols-3">
           {CATEGORY_ORDER.map((category) => {
             const meta = CATEGORY_META[category];
             const sample = servicesByCategory(category).slice(START_INDEX, SAMPLE_COUNT);
             const remaining = servicesByCategory(category).length - sample.length;
             return (
-              <article key={category} className="flex h-full flex-col rounded-[20px] border border-line bg-bgsoft p-5">
+              <article key={category} className="flex h-full flex-col items-center rounded-[20px] border border-line bg-bgsoft p-5 text-center sm:items-stretch sm:text-left">
                 <h3 className="font-display text-xl font-bold">
                   {locale === "es" ? meta.titleEs : meta.titleEn}
                 </h3>
                 <p className="mt-1 text-sm font-bold text-accent">
                   {locale === "es" ? meta.timeEs : meta.timeEn} · {copy.from} ${meta.floor}
                 </p>
-                <ul className="mt-3 flex flex-col gap-1.5 text-sm text-muted">
+                <ul className="mt-3 flex flex-col items-center gap-1.5 text-sm text-muted sm:items-stretch">
                   {sample.map((service) => (
-                    <li key={service.slug} className="flex items-center gap-1.5">
+                    <li key={service.slug} className="flex items-center justify-center gap-1.5 sm:justify-start">
                       <ArrowIcon className="h-3.5 w-3.5 shrink-0 text-accent" />
                       {locale === "es" ? service.titleEs : service.titleEn}
                     </li>
                   ))}
-                  {remaining > START_INDEX ? <li className="pl-5 text-xs">+{remaining} {copy.more}…</li> : null}
+                  {remaining > START_INDEX ? <li className="text-xs sm:pl-5">+{remaining} {copy.more}…</li> : null}
                 </ul>
-                <div className="mt-auto pt-4">
+                <div className="mt-auto flex justify-center pt-4 sm:justify-start">
                   <Link
                     href={catalogPath}
                     className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accentink"

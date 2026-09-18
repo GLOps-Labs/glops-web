@@ -4,6 +4,7 @@ const EXPECTED = {
   httpOk: 200,
   httpNotFound: 404,
   noElements: 0,
+  noOverflow: 0,
   minJsonLd: 4,
   hreflangCount: 1,
   serviceCards: 11,
@@ -13,12 +14,15 @@ const EXPECTED = {
 
 const HEADING_ROLE = "heading" as const;
 const BUTTON_ROLE = "button" as const;
+const NAV_ROLE = "navigation" as const;
+const TOP_LINK_NAME = "GLOps Labs — top";
+const SERVICIOS_PATH = "/servicios";
 
 test("happy: ES/EN toggle switches the hero without touching the URL", async ({ page, context }) => {
   await page.goto("/");
   await expect(page.locator("header")).toHaveCSS("position", "sticky");
   await expect(page.getByText("Exp01")).toHaveCount(EXPECTED.noElements);
-  await expect(page.locator("header").getByRole("link", { name: "GLOps Labs — top" })).toBeVisible();
+  await expect(page.locator("header").getByRole("link", { name: TOP_LINK_NAME })).toBeVisible();
   await expect(page.getByRole(HEADING_ROLE, { level: 1 })).toContainText("listas en días");
   await page.getByRole(BUTTON_ROLE, { name: "EN", exact: true }).click();
   await expect(page.getByRole(HEADING_ROLE, { level: 1 })).toContainText(EXPECTED.enHeading);
@@ -68,7 +72,7 @@ test("happy: meta/SEO + sitemap + llms are alive", async ({ page, request }) => 
   expect(ogImage).toMatch(/^https:\/\/glopslabs\.com\/og\/cover\.png/);
   const ogFile = await request.get("/og/cover.png");
   expect(ogFile.headers()["content-type"]).toContain("image/");
-  for (const url of ["/sitemap.xml", "/robots.txt", "/llms.txt", "/llms-full.txt", "/og/cover.png", "/servicios", "/en", "/en/servicios", "/manifest.webmanifest", "/icon.png", "/apple-icon.png"]) {
+  for (const url of ["/sitemap.xml", "/robots.txt", "/llms.txt", "/llms-full.txt", "/og/cover.png", SERVICIOS_PATH, "/en", "/en/servicios", "/manifest.webmanifest", "/icon.png", "/apple-icon.png"]) {
     const response = await request.get(url);
     expect(response.status(), url).toBe(EXPECTED.httpOk);
   }
@@ -83,7 +87,7 @@ test("error: unknown route renders a friendly 404 in ES/EN", async ({ page }) =>
 
 test("happy: brand logo scrolls back to top", async ({ page }) => {
   await page.goto("/#contact");
-  await page.locator("header").getByRole("link", { name: "GLOps Labs — top" }).click();
+  await page.locator("header").getByRole("link", { name: TOP_LINK_NAME }).click();
   await expect(page).toHaveURL(/#top$/);
 });
 
@@ -97,6 +101,33 @@ test("happy: social links are visible", async ({ page }) => {
 test("happy: catalog renders pace cards at home and every service in detail", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("#work article")).toHaveCount(EXPECTED.paceCards);
-  await page.goto("/servicios");
+  await page.goto(SERVICIOS_PATH);
   await expect(page.locator("main article")).toHaveCount(EXPECTED.serviceCards);
+});
+
+test.describe("mobile 360 regression", () => {
+  test.use({ viewport: { width: 360, height: 740 } });
+
+  test("no horizontal overflow on home, catalog and EN", async ({ page }) => {
+    for (const url of ["/", SERVICIOS_PATH, "/en"]) {
+      await page.goto(url);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      expect(overflow, url).toBeLessThanOrEqual(EXPECTED.noOverflow);
+    }
+  });
+
+  test("header brand and schedule CTA stay visible", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("header").getByRole("link", { name: TOP_LINK_NAME })).toBeVisible();
+    await expect(page.getByRole("link", { name: /agendar|schedule/i }).first()).toBeVisible();
+  });
+
+  test("mobile section nav jumps to each section", async ({ page }) => {
+    await page.goto("/");
+    const sections = page.getByRole(NAV_ROLE, { name: /secciones|sections/i });
+    await expect(sections).toBeVisible();
+    await sections.getByRole("link", { name: /servicios|services/i }).click();
+    await expect(page).toHaveURL(/#work$/);
+    await expect(page.locator("#work")).toBeInViewport();
+  });
 });
