@@ -167,7 +167,7 @@ export function Wizard({ locale }: { locale: SupportedLocale }) {
   return (
     <section id="contact" className="w-full bg-bg">
       <div className="mx-auto max-w-5xl px-4 py-12">
-        <h2 className="font-display font-bold" style={{ fontSize: "var(--section-size)" }}>{copy.title}</h2>
+        <h2 className="text-center font-display font-bold sm:text-left" style={{ fontSize: "var(--section-size)" }}>{copy.title}</h2>
         <div className="mt-6 rounded-[20px] border border-line bg-bgsoft p-5 sm:p-8">
           {step === WizardStep.Need ? (
             <StepNeed

@@ -17,6 +17,10 @@ const BUTTON_ROLE = "button" as const;
 const NAV_ROLE = "navigation" as const;
 const TOP_LINK_NAME = "GLOps Labs — top";
 const SERVICIOS_PATH = "/servicios";
+const SMALL_MOBILE_WIDTH = 320;
+const MOBILE_WIDTH = 360;
+const MOBILE_VIEWPORT_HEIGHT = 740;
+const MOBILE_WIDTHS = [SMALL_MOBILE_WIDTH, MOBILE_WIDTH];
 
 test("happy: ES/EN toggle switches the hero without touching the URL", async ({ page, context }) => {
   await page.goto("/");
@@ -109,10 +113,13 @@ test.describe("mobile 360 regression", () => {
   test.use({ viewport: { width: 360, height: 740 } });
 
   test("no horizontal overflow on home, catalog and EN", async ({ page }) => {
-    for (const url of ["/", SERVICIOS_PATH, "/en"]) {
-      await page.goto(url);
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-      expect(overflow, url).toBeLessThanOrEqual(EXPECTED.noOverflow);
+    for (const width of MOBILE_WIDTHS) {
+      await page.setViewportSize({ width, height: MOBILE_VIEWPORT_HEIGHT });
+      for (const url of ["/", SERVICIOS_PATH, "/en"]) {
+        await page.goto(url);
+        const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+        expect(overflow, `${width}px ${url}`).toBeLessThanOrEqual(EXPECTED.noOverflow);
+      }
     }
   });
 

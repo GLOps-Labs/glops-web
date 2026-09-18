@@ -39,7 +39,7 @@ export default function Servicios() {
         <Link href="/" className="flex w-fit items-center gap-1.5 text-sm text-muted underline">
           <ArrowIcon flip className="h-3.5 w-3.5" /> GLOps Labs
         </Link>
-        <h1 className="mt-2 font-display font-bold" style={{ fontSize: "var(--section-size)" }}>
+        <h1 className="mt-2 text-center font-display font-bold sm:text-left" style={{ fontSize: "var(--section-size)" }}>
           Servicios web para PYMEs y profesionales
         </h1>
         <p className="mt-3 max-w-2xl text-muted">
@@ -53,7 +53,7 @@ export default function Servicios() {
         const meta = CATEGORY_META[category];
         return (
           <section key={category}>
-            <h2 className="font-display text-xl font-bold sm:text-2xl">
+            <h2 className="text-center font-display text-xl font-bold sm:text-left sm:text-2xl">
               {meta.titleEs} · {meta.timeEs} · desde ${meta.floor}
             </h2>
             <div className="mt-4 flex flex-col gap-6">
@@ -75,7 +75,7 @@ export default function Servicios() {
       })}
 
       <section className="rounded-[20px] bg-carddark p-5 text-white sm:p-7">
-        <h2 className="font-display text-xl font-bold sm:text-2xl">Cómo trabajamos</h2>
+        <h2 className="text-center font-display text-xl font-bold sm:text-left sm:text-2xl">Cómo trabajamos</h2>
         <ol className="mt-3 flex list-decimal flex-col gap-2 pl-5 text-sm text-white/80">
           <li>Levantamos el requerimiento en un formulario de 15 minutos o una llamada, como prefieras.</li>
           <li>Firmamos checklist cerrada. Lo fuera de lista se re-cotiza.</li>

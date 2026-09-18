@@ -10,7 +10,7 @@ export function Faqs({ locale }: { locale: SupportedLocale }) {
   return (
     <section id="faqs" className="w-full bg-bgsoft">
       <div className="mx-auto max-w-5xl px-4 py-12">
-        <h2 className="font-display font-bold" style={{ fontSize: "var(--section-size)" }}>{copy.title}</h2>
+        <h2 className="text-center font-display font-bold sm:text-left" style={{ fontSize: "var(--section-size)" }}>{copy.title}</h2>
         <div className="mt-6 divide-y divide-line rounded-[20px] border border-line bg-bg">
           {copy.items.map((item, index) => (
             <div key={item.question} className="p-5">
