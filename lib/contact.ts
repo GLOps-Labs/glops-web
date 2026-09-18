@@ -44,7 +44,7 @@ export function buildContactLinks(state: WizardState): {
     "",
     "Gracias.",
   ].join("\n");
-  const email = `mailto:ops.glopslabs+beta1@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+  const email = `mailto:${siteConfig.brand.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
   return { whatsapp, email, calcom: siteConfig.contact.calcom };
 }
 
