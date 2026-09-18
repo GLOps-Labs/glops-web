@@ -26,7 +26,7 @@ export function Nav({
             priority
             className="h-6 w-6 sm:h-7 sm:w-7"
           />
-          <span className="whitespace-nowrap font-display text-xs font-bold text-white sm:text-sm">GLOps Labs</span>
+          <span className="whitespace-nowrap font-display text-xs font-bold text-white sm:text-sm">GLOps <span className="hidden sm:inline">Labs</span></span>
         </a>
         <nav className="hidden gap-5 text-sm sm:flex">
           <a href="#process" className="hover:underline">{copy.process}</a>
@@ -57,13 +57,14 @@ export function Nav({
           ) : null}
         </div>
       </div>
-      <nav aria-label={locale === "es" ? "Secciones" : "Sections"} className="border-t border-line sm:hidden">
-        <div className="mx-auto flex max-w-5xl items-center gap-5 overflow-x-auto px-4 py-2 text-sm">
+      <nav aria-label={locale === "es" ? "Secciones" : "Sections"} className="relative border-t border-line sm:hidden">
+        <div className="mx-auto flex max-w-5xl items-center gap-4 overflow-x-auto px-4 py-2 text-[13px]">
           <a href="#process" className="whitespace-nowrap hover:underline">{copy.process}</a>
           <a href="#work" className="whitespace-nowrap hover:underline">{copy.work}</a>
           <a href="#about" className="whitespace-nowrap hover:underline">{copy.about}</a>
           <a href="#faqs" className="whitespace-nowrap hover:underline">{copy.faqs}</a>
         </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-bg to-transparent" />
       </nav>
     </header>
   );
