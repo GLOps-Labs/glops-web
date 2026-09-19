@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import { JsonLd, orgJsonLd, serviciosBreadcrumbJsonLd } from "@/components/JsonLd";
 import { ArrowIcon } from "@/components/ArrowIcon";
+import { Catalog } from "@/components/Catalog";
 import { Wizard } from "@/components/Wizard";
 import { siteConfig, siteUrls } from "@/config/site";
-import { CATEGORY_META, services } from "@/lib/services";
-import type { ServiceCategory } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Services — GLOps Labs",
@@ -26,8 +26,6 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
 };
-
-const ORDER: readonly ServiceCategory[] = ["rapido", "medio", "core"];
 
 export default function EnServicios() {
   return (
@@ -67,30 +65,7 @@ export default function EnServicios() {
         </p>
       </div>
 
-      {ORDER.map((category) => {
-        const meta = CATEGORY_META[category];
-        return (
-          <section key={category}>
-            <h2 className="text-center font-display text-xl font-bold leading-tight tracking-tight sm:text-left sm:text-2xl">
-              {meta.titleEn} · {meta.timeEn} · from ${meta.floor}
-            </h2>
-            <div className="mt-4 flex flex-col gap-6">
-              {services
-                .filter((service) => service.category === category)
-                .map((service) => (
-                  <article key={service.slug} className="rounded-[20px] border border-line bg-bgsoft p-5 sm:p-7">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-sm font-bold text-accentdeep">{service.slug}</span>
-                      <span className="text-sm font-bold">from ${service.priceFrom}{service.recurring ? "/mo" : null} · {service.time}</span>
-                    </div>
-                    <h3 className="mt-2 font-display text-lg font-bold leading-snug sm:text-xl">{service.titleEn}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted"><strong className="text-ink">What&apos;s included:</strong> {service.includesEn}</p>
-                  </article>
-                ))}
-            </div>
-          </section>
-        );
-      })}
+      <Catalog locale="en" catalogPath="/en/servicios" />
 
       <section className="rounded-[20px] bg-carddark p-5 text-white sm:p-7">
         <h2 className="text-center font-display text-xl font-bold leading-tight tracking-tight sm:text-left sm:text-2xl">How we work</h2>
@@ -103,7 +78,9 @@ export default function EnServicios() {
       </section>
 
     </main>
-      <Wizard locale="en" />
+      <Suspense>
+        <Wizard locale="en" />
+      </Suspense>
 
       <div className="mx-auto flex w-full max-w-5xl justify-center px-4 pb-12">
         <a

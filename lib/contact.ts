@@ -2,7 +2,7 @@ import { z } from "zod";
 import { siteConfig } from "@/config/site";
 import type { SupportedLocale } from "@/config/site";
 import { getDict } from "@/lib/dict";
-import { CATEGORY_META } from "@/lib/services";
+import { CATEGORY_META, ServiceCategorySchema } from "@/lib/services";
 import type { ServiceCategory } from "@/lib/services";
 
 export const NEED_MIN_LENGTH = 4;
@@ -21,6 +21,14 @@ export const WizardStateSchema = WizardNeedSchema.merge(WizardTypeSchema);
 export type WizardState = z.infer<typeof WizardStateSchema>;
 
 export type WizardCategory = ServiceCategory;
+
+const DEFAULT_WIZARD_CATEGORY: WizardCategory = "rapido";
+
+/** Catalog deep-link (?pace=medio) preselects the wizard pace; anything else falls back. */
+export function resolvePaceParam(value: string | null): WizardCategory {
+  const parsed = ServiceCategorySchema.safeParse(value);
+  return parsed.success ? parsed.data : DEFAULT_WIZARD_CATEGORY;
+}
 
 const CALCOM_NOTES_PARAM = "notes";
 const QUERY_SEPARATOR = "?";

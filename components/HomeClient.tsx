@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import type { SupportedLocale } from "@/config/site";
 import { writeLocaleCookie } from "@/lib/locale";
 import { Nav } from "@/components/Nav";
@@ -26,7 +26,9 @@ export function Site({
         <Process locale={locale} />
         <Work locale={locale} />
         <Faqs locale={locale} />
-        <Wizard locale={locale} />
+        <Suspense>
+          <Wizard locale={locale} />
+        </Suspense>
       </main>
       <Footer locale={locale} />
     </>

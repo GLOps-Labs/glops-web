@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import type { UseFormRegister } from "react-hook-form";
 import { getDict } from "@/lib/dict";
 import type { Dict } from "@/lib/dict";
 import { siteConfig } from "@/config/site";
 import type { SupportedLocale } from "@/config/site";
-import { NEED_MAX_LENGTH, NEED_MIN_LENGTH, WizardNeedSchema, buildContactLinks } from "@/lib/contact";
+import { NEED_MAX_LENGTH, NEED_MIN_LENGTH, WizardNeedSchema, buildContactLinks, resolvePaceParam } from "@/lib/contact";
 import type { ContactLinks, NeedForm, WizardCategory } from "@/lib/contact";
 import { CATEGORY_META } from "@/lib/services";
 import type { ServiceCategory } from "@/lib/services";
@@ -169,9 +170,16 @@ function StepChannel({
 
 export function Wizard({ locale }: { locale: SupportedLocale }) {
   const copy = getDict(locale).wizard;
+  const paceParam = useSearchParams().get("pace");
   const [step, setStep] = useState<WizardStep>(WizardStep.Need);
-  const [category, setCategory] = useState<WizardCategory>("rapido");
+  const [category, setCategory] = useState<WizardCategory>(() => resolvePaceParam(paceParam));
+  const [appliedPace, setAppliedPace] = useState<string | null>(paceParam);
   const { register, getValues, formState } = useForm<NeedForm>({ mode: "onChange", defaultValues: { need: "" } });
+
+  if (paceParam !== appliedPace) {
+    setAppliedPace(paceParam);
+    setCategory(resolvePaceParam(paceParam));
+  }
 
   const rawNeed = getValues("need") ?? "";
   const needValid = formState.isValid;

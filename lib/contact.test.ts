@@ -1,5 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { NEED_MAX_LENGTH, WizardStateSchema, buildContactLinks } from "./contact";
+import { NEED_MAX_LENGTH, WizardStateSchema, buildContactLinks, resolvePaceParam } from "./contact";
+
+describe("resolvePaceParam (catalog deep-link)", () => {
+  it("returns the category for a valid pace", () => {
+    expect(resolvePaceParam("medio")).toBe("medio");
+  });
+
+  it("falls back to rapido for missing or invalid pace", () => {
+    expect(resolvePaceParam(null)).toBe("rapido");
+    expect(resolvePaceParam("express")).toBe("rapido");
+    expect(resolvePaceParam("")).toBe("rapido");
+  });
+});
 
 describe("WizardStateSchema (parse, don't validate)", () => {
   it("accepts a complete valid state", () => {

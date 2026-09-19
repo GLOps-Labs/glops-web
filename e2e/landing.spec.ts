@@ -113,6 +113,16 @@ test("happy: catalog renders pace cards at home and every service in detail", as
   await expect(page.locator("main article")).toHaveCount(EXPECTED.serviceCards);
 });
 
+test("happy: catalog pace CTA deep-links and preselects the wizard pace", async ({ page }) => {
+  await page.goto(SERVICIOS_PATH);
+  await page.getByRole("link", { name: "Elegir Medio" }).click();
+  await expect(page).toHaveURL(/pace=medio/);
+  await expect(page.locator("#contact")).toBeInViewport();
+  await page.getByPlaceholder(/landing para|landing for/i).fill("Landing para mi clínica");
+  await page.locator("#contact").getByRole(BUTTON_ROLE, { name: /siguiente/i }).click();
+  await expect(page.locator("#contact").getByRole(BUTTON_ROLE, { name: /medio/i })).toHaveAttribute("aria-pressed", "true");
+});
+
 test.describe("mobile 360 regression", () => {
   test.use({ viewport: { width: 360, height: 740 } });
 

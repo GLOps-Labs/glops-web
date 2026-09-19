@@ -33,6 +33,10 @@ export const dict = {
       from: "desde",
       details: "Ver servicios",
       more: "más",
+      choose: "Elegir",
+      paceNav: "Saltar a un ritmo",
+      includes: "Qué incluye:",
+      perMonth: "/mes",
     },
     faqs: {
       title: "FAQs",
@@ -109,6 +113,10 @@ export const dict = {
       from: "from",
       details: "See services",
       more: "more",
+      choose: "Choose",
+      paceNav: "Jump to a pace",
+      includes: "What's included:",
+      perMonth: "/mo",
     },
     faqs: {
       title: "FAQs",
