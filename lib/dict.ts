@@ -17,7 +17,7 @@ export const dict = {
       title: "Proceso",
       steps: [
         { code: "01", label: "Llamada inicial" },
-        { code: "02", label: "Contrato e invoice" },
+        { code: "02", label: "Contrato y factura" },
         { code: "03", label: "Construcción" },
         { code: "04", label: "Launch y saldo" },
       ],
@@ -25,7 +25,7 @@ export const dict = {
         "Metas claras por formulario de 15 min o llamada, como prefieras.",
         "Entregables, deadlines, método de pago y bienvenida por escrito. Nada por hecho hasta la firma.",
         "Desarrollo con revisiones y avances antes de cada entrega.",
-        "Deploy final al cancelar el saldo.",
+        "Publicación final al cancelar el saldo.",
       ],
     },
     work: {
@@ -41,10 +41,10 @@ export const dict = {
     faqs: {
       title: "FAQs",
       items: [
-        { question: "¿Cómo se paga?", answer: "50% para iniciar por Payoneer, Facebank o Binance, con invoice y método de pago claros desde el día uno. El resto antes del deploy o la migración a tu dominio." },
+        { question: "¿Cómo se paga?", answer: "50% para iniciar por Payoneer, Facebank o Binance, con factura y método de pago claros desde el día uno. El resto antes de publicar o migrar a tu dominio." },
         { question: "¿Cuándo empieza a correr el tiempo?", answer: "Cuando entregas textos, fotos y logo. Si te falta algo, se coordina en la llamada inicial y el tiempo corre desde ese acuerdo." },
-        { question: "¿Tienen mantenimiento?", answer: "Plan desde $50/mes: respaldos semanales, updates, monitoreo uptime y 1 hora de ajustes menores al mes." },
-        { question: "¿Trabajan fuera de Venezuela?", answer: "Sí: base en Venezuela y operación remota en toda LatAm. Cobramos por adelantado y entregamos en staging con password hasta el pago final." },
+        { question: "¿Tienen mantenimiento?", answer: "Plan desde $50/mes: respaldos semanales, actualizaciones, monitoreo de disponibilidad y 1 hora de ajustes menores al mes." },
+        { question: "¿Trabajan fuera de Venezuela?", answer: "Sí: base en Venezuela y operación remota en toda LatAm. Cobramos por adelantado y entregamos en un entorno de prueba con contraseña hasta el pago final." },
       ],
     },
     wizard: {

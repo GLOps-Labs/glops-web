@@ -16,7 +16,8 @@ describe("ServiceSchema", () => {
         slug: "x",
         category: "express",
         priceFrom: 10,
-        time: "24h",
+        timeEs: "24h",
+        timeEn: "24h",
         titleEs: "x",
         titleEn: "y",
         includesEs: "x",
@@ -34,7 +35,8 @@ describe("catalog coverage", () => {
     expect(servicesByCategory("core").length).toBeGreaterThan(EMPTY);
     for (const service of services) {
       expect(service.priceFrom).toBeGreaterThan(EMPTY);
-      expect(service.time.length).toBeGreaterThan(EMPTY);
+      expect(service.timeEs.length).toBeGreaterThan(EMPTY);
+      expect(service.timeEn.length).toBeGreaterThan(EMPTY);
     }
   });
 

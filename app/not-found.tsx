@@ -14,13 +14,13 @@ export default function NotFound() {
           href="/"
           className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          Volver al inicio <ArrowIcon className="h-4 w-4" />
+          Volver al inicio · Home <ArrowIcon className="h-4 w-4" />
         </Link>
         <Link
           href="/servicios"
           className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          Ver servicios
+          Ver servicios · Services
         </Link>
       </div>
     </main>

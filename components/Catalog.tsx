@@ -54,7 +54,7 @@ export function Catalog({ locale, catalogPath }: { locale: SupportedLocale; cata
                     <span className="text-sm font-bold text-accentdeep">{service.slug}</span>
                     <span className="text-sm font-bold">
                       {copy.from} ${service.priceFrom}
-                      {service.recurring ? copy.perMonth : null} · {service.time}
+                      {service.recurring ? copy.perMonth : null} · {locale === "es" ? service.timeEs : service.timeEn}
                     </span>
                   </div>
                   <h3 className="mt-2 font-display text-lg font-bold leading-snug sm:text-xl">

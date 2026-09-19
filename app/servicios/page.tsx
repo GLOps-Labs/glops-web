@@ -60,9 +60,9 @@ export default function Servicios() {
           Servicios web para PYMEs y profesionales
         </h1>
         <p className="mt-3 max-w-2xl text-base text-muted sm:text-lg">
-          Once productos estandarizados: sabes exactamente qué recibes, en cuánto
-          tiempo y por cuánto antes de pagar. 50% para iniciar, el resto antes del
-          deploy. El tiempo corre desde que entregas textos, fotos y logo.
+          11 productos estandarizados: sabes exactamente qué recibes, en cuánto
+          tiempo y por cuánto antes de pagar. 50% para iniciar, el resto antes de
+          publicar. El tiempo corre desde que entregas textos, fotos y logo.
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export default function Servicios() {
           <li>Levantamos el requerimiento en un formulario de 15 minutos o una llamada, como prefieras.</li>
           <li>Firmamos checklist cerrada. Lo fuera de lista se re-cotiza.</li>
           <li>Pagas 50% para iniciar. El resto antes de migrar a tu dominio final.</li>
-          <li>Entregamos en staging con password; el deploy final va con el pago completo.</li>
+          <li>Entregamos en un entorno de prueba con contraseña; la publicación final va con el pago completo.</li>
         </ol>
       </section>
 

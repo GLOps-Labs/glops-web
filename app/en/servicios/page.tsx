@@ -59,7 +59,7 @@ export default function EnServicios() {
           Fixed-scope services for SMBs and professionals
         </h1>
         <p className="mt-3 max-w-2xl text-base text-muted sm:text-lg">
-          Eleven standardized products: you know exactly what you get, when and
+          11 standardized products: you know exactly what you get, when and
           for how much before paying. 50% to start, the balance before deploy.
           The clock starts when you deliver copy, photos and logo.
         </p>
