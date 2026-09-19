@@ -14,7 +14,7 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
           className="font-display font-bold leading-[1.05] tracking-tight"
           style={{ fontSize: "var(--hero-size)" }}
         >
-          {copy.h1a} <span className="text-accent underline decoration-accent/40 underline-offset-4">{copy.accent}</span>{" "}
+          {copy.h1a} <span className="text-accent underline decoration-accent/40 underline-offset-[0.28em]">{copy.accent}</span>{" "}
           {copy.h1b}
         </h1>
         <p className="max-w-xl text-base text-muted sm:text-lg">{copy.sub}</p>

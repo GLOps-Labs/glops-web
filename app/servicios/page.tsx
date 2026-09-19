@@ -54,7 +54,7 @@ export default function Servicios() {
           ) : null}
         </div>
       </header>
-    <main id="top" className="mx-auto flex max-w-5xl flex-1 scroll-mt-20 flex-col gap-10 px-4 py-12">
+    <main id="top" className="mx-auto flex w-full max-w-5xl flex-1 scroll-mt-20 flex-col gap-10 px-4 py-12">
       <JsonLd data={orgJsonLd} />
       <JsonLd data={serviciosBreadcrumbJsonLd("es")} />
       <div>
@@ -103,9 +103,10 @@ export default function Servicios() {
         </ol>
       </section>
 
+    </main>
       <Wizard locale="es" />
 
-      <div className="flex justify-center">
+      <div className="mx-auto flex w-full max-w-5xl justify-center px-4 pb-12">
         <a
           href="#top"
           className="inline-flex items-center gap-1.5 rounded-full border border-line bg-bg px-5 py-2.5 text-sm font-semibold shadow-sm transition hover:border-ink hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
@@ -113,7 +114,6 @@ export default function Servicios() {
           <span aria-hidden="true" className="text-base leading-none">↑</span> Volver arriba
         </a>
       </div>
-    </main>
     </>
   );
 }
