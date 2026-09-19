@@ -25,9 +25,9 @@ type WizardCopy = Dict["wizard"];
 const CATEGORIES: readonly ServiceCategory[] = ["rapido", "medio", "core"];
 const NEED_INPUT_ID = "wizard-need";
 
-function resolveLinks(need: string, category: WizardCategory, ready: boolean): ContactLinks | null {
+function resolveLinks(need: string, category: WizardCategory, locale: SupportedLocale, ready: boolean): ContactLinks | null {
   if (!ready) return null;
-  return buildContactLinks({ need: need || "…", category });
+  return buildContactLinks({ need: need || "…", category }, locale);
 }
 
 function StepNeed({
@@ -143,16 +143,16 @@ function StepChannel({
       {links ? (
         <div className="flex flex-wrap gap-3">
           {siteConfig.features.showSchedule ? (
-            <a href={links.calcom} className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <a href={links.calcom} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
               {copy.schedule} <ArrowIcon className="h-4 w-4" />
             </a>
           ) : null}
           {siteConfig.features.showWhatsapp ? (
-            <a href={links.whatsapp} className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+            <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
               {copy.whatsapp}
             </a>
           ) : null}
-          <a href={links.email} className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <a href={links.email} target="_blank" rel="noopener noreferrer" className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             {copy.email}
           </a>
         </div>
@@ -175,7 +175,7 @@ export function Wizard({ locale }: { locale: SupportedLocale }) {
 
   const rawNeed = getValues("need") ?? "";
   const needValid = formState.isValid;
-  const links = resolveLinks(rawNeed, category, needValid || step === WizardStep.Channel);
+  const links = resolveLinks(rawNeed, category, locale, needValid || step === WizardStep.Channel);
 
   return (
     <section id="contact" className="w-full bg-bg">

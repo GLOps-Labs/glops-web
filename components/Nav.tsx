@@ -45,7 +45,7 @@ export function Nav({
                 key={localeCode}
                 onClick={() => onLocale(localeCode)}
                 aria-pressed={locale === localeCode}
-                className={`rounded-full px-2 py-1 font-semibold transition hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:px-3 ${locale === localeCode ? "bg-ink text-white hover:text-white" : "text-muted"}`}
+                className={`cursor-pointer rounded-full px-2 py-1 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:px-3 ${locale === localeCode ? "bg-ink text-white hover:brightness-125" : "text-muted hover:bg-line hover:text-ink"}`}
               >
                 {localeCode.toUpperCase()}
               </button>
@@ -54,6 +54,8 @@ export function Nav({
           {siteConfig.features.showSchedule ? (
             <a
               href={siteConfig.contact.calcom}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1 whitespace-nowrap rounded-full bg-accent px-3 py-1.5 text-xs font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:gap-1.5 sm:px-4 sm:py-2 sm:text-sm"
             >
               {copy.schedule} <ArrowIcon className="h-3 w-3 sm:h-4 sm:w-4" />

@@ -25,25 +25,64 @@ describe("WizardStateSchema (parse, don't validate)", () => {
 });
 
 describe("buildContactLinks (single mutation gate)", () => {
-  it("prefills whatsapp with category + floor + need", () => {
-    const links = buildContactLinks({ need: "Landing", category: "medio" });
+  it("prefills whatsapp in Spanish with localized pace", () => {
+    const links = buildContactLinks({ need: "Landing", category: "medio" }, "es");
     expect(links.whatsapp).toContain("wa.me/");
     const decoded = decodeURIComponent(links.whatsapp);
     expect(decoded).toContain("quiero pedir");
-    expect(decoded).toContain("medio desde $200 — Landing");
+    expect(decoded).toContain("Medio");
+    expect(decoded).toContain("desde $200");
   });
 
-  it("prefills mailto subject + styled body", () => {
-    const links = buildContactLinks({ need: "Menú QR", category: "rapido" });
+  it("prefills whatsapp in English with localized pace", () => {
+    const links = buildContactLinks({ need: "Landing", category: "medio" }, "en");
+    const decoded = decodeURIComponent(links.whatsapp);
+    expect(decoded).toContain("I want to order");
+    expect(decoded).toContain("Standard");
+    expect(decoded).toContain("from $200");
+    expect(decoded).not.toContain("quiero pedir");
+  });
+
+  it("prefills mailto subject + styled body in Spanish", () => {
+    const links = buildContactLinks({ need: "Menú QR", category: "rapido" }, "es");
     expect(links.email.startsWith("mailto:")).toBe(true);
     const decoded = decodeURIComponent(links.email);
     expect(decoded).toContain("Nuevo proyecto web");
-    expect(decoded).toContain("rapido desde $50 — Menú QR");
+    expect(decoded).toContain("Rápido");
     expect(decoded).toContain("Mis datos:");
+    expect(decoded).toContain("Mejor horario:");
   });
 
-  it("takes cal.com from siteConfig", () => {
-    const links = buildContactLinks({ need: "Corporativo", category: "core" });
+  it("prefills mailto subject + styled body in English", () => {
+    const links = buildContactLinks({ need: "QR menu", category: "rapido" }, "en");
+    expect(links.email.startsWith("mailto:")).toBe(true);
+    const decoded = decodeURIComponent(links.email);
+    expect(decoded).toContain("New website project");
+    expect(decoded).toContain("Hello");
+    expect(decoded).toContain("My details:");
+    expect(decoded).toContain("Best time:");
+    expect(decoded).not.toContain("Hola");
+  });
+
+  it("prefills calcom notes line by line in Spanish without contact rows", () => {
+    const links = buildContactLinks({ need: "Corporativo", category: "core" }, "es");
     expect(links.calcom).toContain("cal.com/");
+    expect(links.calcom).toContain("notes=");
+    const decoded = decodeURIComponent(links.calcom);
+    expect(decoded).toContain("Quiero pedir:");
+    expect(decoded).toContain("Ritmo: Core");
+    expect(decoded).toContain("Pedido: Corporativo");
+    expect(decoded).not.toContain("Nombre:");
+  });
+
+  it("prefills calcom notes line by line in English without contact rows", () => {
+    const links = buildContactLinks({ need: "Corporate", category: "core" }, "en");
+    expect(links.calcom).toContain("notes=");
+    const decoded = decodeURIComponent(links.calcom);
+    expect(decoded).toContain("I want to order:");
+    expect(decoded).toContain("Pace: Core");
+    expect(decoded).toContain("Request: Corporate");
+    expect(decoded).not.toContain("Name:");
+    expect(decoded).not.toContain("Quiero");
   });
 });

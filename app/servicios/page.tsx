@@ -45,6 +45,8 @@ export default function Servicios() {
           {siteConfig.features.showSchedule ? (
             <a
               href={siteConfig.contact.calcom}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-accent px-3 py-1.5 text-xs font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:gap-1.5 sm:px-4 sm:py-2 sm:text-sm"
             >
               Agendar <ArrowIcon className="h-3 w-3 sm:h-4 sm:w-4" />

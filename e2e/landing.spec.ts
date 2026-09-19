@@ -62,8 +62,12 @@ test("happy: 3-step wizard builds prefilled links", async ({ page }) => {
   await wizard.getByRole(BUTTON_ROLE, { name: /siguiente/i }).click();
   await wizard.getByRole(BUTTON_ROLE, { name: /medio/i }).click();
   await wizard.getByRole(BUTTON_ROLE, { name: /siguiente/i }).click();
-  const whatsapp = page.getByRole("link", { name: /whatsapp/i }).last();
-  await expect(whatsapp).toHaveAttribute("href", /wa\.me.*medio.*200/);
+  const whatsapp = wizard.getByRole("link", { name: /whatsapp/i });
+  await expect(whatsapp).toHaveAttribute("href", /wa\.me.*200/);
+  await expect(whatsapp).toHaveAttribute("target", "_blank");
+  const schedule = wizard.getByRole("link", { name: /agendar|schedule/i });
+  await expect(schedule).toHaveAttribute("href", /notes=/);
+  await expect(schedule).toHaveAttribute("target", "_blank");
 });
 
 test("happy: meta/SEO + sitemap + llms are alive", async ({ page, request }) => {

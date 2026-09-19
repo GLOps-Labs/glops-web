@@ -45,18 +45,18 @@ export function Footer({ locale }: { locale: SupportedLocale }) {
           <span className="font-display text-lg font-bold text-white">GLOps Labs</span>
         </a>
         <div className="flex flex-wrap gap-4">
-          <a href={siteConfig.brand.github} className="flex items-center gap-1.5 underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <a href={siteConfig.brand.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             <GithubIcon /> GitHub
           </a>
-          <a href={siteConfig.brand.instagram} className="flex items-center gap-1.5 underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <a href={siteConfig.brand.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             <InstagramIcon /> Instagram
           </a>
-          <a href={`mailto:${siteConfig.brand.email}`} className="flex items-center gap-1.5 underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <a href={`mailto:${siteConfig.brand.email}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             <MailIcon /> Email
           </a>
         </div>
         <span className="text-white/70">
-          <a href={siteConfig.brand.instagram} className="underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{copy.built}</a> · {copy.rights}
+          <a href={siteConfig.brand.instagram} target="_blank" rel="noopener noreferrer" className="underline transition hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{copy.built}</a> · {copy.rights}
         </span>
       </div>
     </footer>

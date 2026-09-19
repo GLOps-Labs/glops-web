@@ -14,7 +14,7 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
           className="font-display font-bold leading-[1.05] tracking-tight"
           style={{ fontSize: "var(--hero-size)" }}
         >
-          {copy.h1a} <span className="text-accent underline decoration-accent/40 underline-offset-8">{copy.accent}</span>{" "}
+          {copy.h1a} <span className="text-accent underline decoration-accent/40 underline-offset-4">{copy.accent}</span>{" "}
           {copy.h1b}
         </h1>
         <p className="max-w-xl text-base text-muted sm:text-lg">{copy.sub}</p>
@@ -22,6 +22,8 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
           {siteConfig.features.showSchedule ? (
             <a
               href={siteConfig.contact.calcom}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {copy.schedule} <ArrowIcon className="h-4 w-4" />
@@ -30,6 +32,8 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
           {siteConfig.features.showWhatsapp ? (
             <a
               href={siteConfig.contact.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {copy.whatsapp}
@@ -37,6 +41,8 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
           ) : null}
           <a
             href={`mailto:${siteConfig.brand.email}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {copy.email}
