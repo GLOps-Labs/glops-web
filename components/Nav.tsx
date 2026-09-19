@@ -6,6 +6,9 @@ import { ArrowIcon } from "@/components/ArrowIcon";
 import { getDict } from "@/lib/dict";
 import { siteConfig } from "@/config/site";
 
+const NAV_LINK_CLASS =
+  "whitespace-nowrap rounded px-1 py-2 text-sm font-medium leading-5 text-ink transition hover:text-accentdeep hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+
 export function Nav({
   locale,
   onLocale,
@@ -29,11 +32,11 @@ export function Nav({
           />
           <span className="whitespace-nowrap font-display text-xs font-bold text-white sm:text-sm">GLOps <span className="hidden sm:inline">Labs</span></span>
         </a>
-        <nav className="hidden gap-5 text-sm sm:flex">
-          <a href="#process" className="hover:underline">{copy.process}</a>
-          <a href="#work" className="hover:underline">{copy.work}</a>
-          <a href="#about" className="hover:underline">{copy.about}</a>
-          <a href="#faqs" className="hover:underline">{copy.faqs}</a>
+        <nav className="hidden items-center gap-3 sm:flex">
+          <a href="#process" className={NAV_LINK_CLASS}>{copy.process}</a>
+          <a href="#work" className={NAV_LINK_CLASS}>{copy.work}</a>
+          <a href="#about" className={NAV_LINK_CLASS}>{copy.about}</a>
+          <a href="#faqs" className={NAV_LINK_CLASS}>{copy.faqs}</a>
         </nav>
         <div className="flex items-center gap-1.5 sm:gap-2">
           <div className="flex rounded-full border border-line p-0.5 text-xs" role="group" aria-label="ES/EN">
@@ -42,7 +45,7 @@ export function Nav({
                 key={localeCode}
                 onClick={() => onLocale(localeCode)}
                 aria-pressed={locale === localeCode}
-                className={`rounded-full px-2 py-1 font-semibold sm:px-3 ${locale === localeCode ? "bg-ink text-white" : "text-muted"}`}
+                className={`rounded-full px-2 py-1 font-semibold transition hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:px-3 ${locale === localeCode ? "bg-ink text-white hover:text-white" : "text-muted"}`}
               >
                 {localeCode.toUpperCase()}
               </button>
@@ -51,7 +54,7 @@ export function Nav({
           {siteConfig.features.showSchedule ? (
             <a
               href={siteConfig.contact.calcom}
-              className="flex items-center gap-1 whitespace-nowrap rounded-full bg-accent px-3 py-1.5 text-xs font-semibold text-accentink sm:gap-1.5 sm:px-4 sm:py-2 sm:text-sm"
+              className="flex items-center gap-1 whitespace-nowrap rounded-full bg-accent px-3 py-1.5 text-xs font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:gap-1.5 sm:px-4 sm:py-2 sm:text-sm"
             >
               {copy.schedule} <ArrowIcon className="h-3 w-3 sm:h-4 sm:w-4" />
             </a>
@@ -61,11 +64,11 @@ export function Nav({
       </header>
       <nav aria-label={locale === "es" ? "Secciones" : "Sections"} className="relative border-b border-line sm:hidden">
         <div className="overflow-x-auto">
-          <div className="mx-auto flex w-max items-center gap-4 px-4 py-2 text-[13px]">
-          <a href="#process" className="whitespace-nowrap hover:underline">{copy.process}</a>
-          <a href="#work" className="whitespace-nowrap hover:underline">{copy.work}</a>
-          <a href="#about" className="whitespace-nowrap hover:underline">{copy.about}</a>
-          <a href="#faqs" className="whitespace-nowrap hover:underline">{copy.faqs}</a>
+          <div className="mx-auto flex w-max items-center gap-3 px-4 py-1">
+          <a href="#process" className={NAV_LINK_CLASS}>{copy.process}</a>
+          <a href="#work" className={NAV_LINK_CLASS}>{copy.work}</a>
+          <a href="#about" className={NAV_LINK_CLASS}>{copy.about}</a>
+          <a href="#faqs" className={NAV_LINK_CLASS}>{copy.faqs}</a>
           </div>
         </div>
         <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-bg to-transparent" />

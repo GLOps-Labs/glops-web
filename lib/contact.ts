@@ -20,6 +20,10 @@ export type WizardState = z.infer<typeof WizardStateSchema>;
 
 export type WizardCategory = ServiceCategory;
 
+const CALCOM_NOTES_PARAM = "notes";
+const QUERY_SEPARATOR = "?";
+const QUERY_APPENDER = "&";
+
 /** Single mutation gate: the only builder for outbound links (SPEC §8 Cat2). */
 export function buildContactLinks(state: WizardState): {
   whatsapp: string;
@@ -30,6 +34,10 @@ export function buildContactLinks(state: WizardState): {
   const summary = `${state.category} desde $${meta.floor} — ${state.need}`;
   const [whatsappBase] = siteConfig.contact.whatsapp.split("?text=");
   const whatsapp = `${whatsappBase}?text=${encodeURIComponent(`Hola GLOps Labs, quiero pedir: ${summary}. Mis datos — Nombre: Teléfono:`)}`;
+  const calcomBase = siteConfig.contact.calcom;
+  const calcomJoiner = calcomBase.includes(QUERY_SEPARATOR) ? QUERY_APPENDER : QUERY_SEPARATOR;
+  const calcomNotes = encodeURIComponent(`Quiero pedir: ${summary}. Mis datos — Nombre: Teléfono:`);
+  const calcom = `${calcomBase}${calcomJoiner}${CALCOM_NOTES_PARAM}=${calcomNotes}`;
   const emailSubject = "Nuevo proyecto web — GLOps Labs";
   const emailBody = [
     "Hola GLOps Labs,",
@@ -45,7 +53,7 @@ export function buildContactLinks(state: WizardState): {
     "Gracias.",
   ].join("\n");
   const email = `mailto:${siteConfig.brand.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-  return { whatsapp, email, calcom: siteConfig.contact.calcom };
+  return { whatsapp, email, calcom };
 }
 
 export type ContactLinks = ReturnType<typeof buildContactLinks>;

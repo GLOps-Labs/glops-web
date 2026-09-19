@@ -22,7 +22,7 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
           {siteConfig.features.showSchedule ? (
             <a
               href={siteConfig.contact.calcom}
-              className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink"
+              className="flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accentink shadow-sm transition hover:brightness-110 hover:shadow-md active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {copy.schedule} <ArrowIcon className="h-4 w-4" />
             </a>
@@ -30,14 +30,14 @@ export function Hero({ locale }: { locale: SupportedLocale }) {
           {siteConfig.features.showWhatsapp ? (
             <a
               href={siteConfig.contact.whatsapp}
-              className="rounded-full border border-ink px-6 py-3 text-sm font-semibold"
+              className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {copy.whatsapp}
             </a>
           ) : null}
           <a
             href={`mailto:${siteConfig.brand.email}`}
-            className="rounded-full border border-ink px-6 py-3 text-sm font-semibold"
+            className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:bg-ink hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             {copy.email}
           </a>
